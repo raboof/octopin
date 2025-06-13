@@ -21,7 +21,7 @@
             owner = "eclipse-csi";
             repo = "octopin";
             tag = "v${version}";
-            hash = "sha256-cM971Nyk1r9fyURkGnuUqThXKLE/QtZqzRcXZPGXFLI=";
+            hash = "sha256-jpMa4NO78ttmr/VGJHjwOkGecwN4BSMvbCJFKjXd/ko=";
           };
         
           pyproject = true;
