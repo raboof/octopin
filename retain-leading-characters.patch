@@ -1,0 +1,26 @@
+From 71a9e8f18ef850ab3abdf8d836e3940a942ec67a Mon Sep 17 00:00:00 2001
+From: Arnout Engelen <arnout@bzzt.net>
+Date: Fri, 13 Jun 2025 11:42:18 +0200
+Subject: [PATCH] fix: retain leading characters when replacing a workflow line
+
+Perhaps we should also explicitly only accept whitespace, instead
+of any prefix? I kept the diff as small as possible for now.
+
+Sadly without a unit test, that would've needed a bigger refactor
+---
+ octopin/pin.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/octopin/pin.py b/octopin/pin.py
+index 1f37924..937f59c 100644
+--- a/octopin/pin.py
++++ b/octopin/pin.py
+@@ -150,7 +150,7 @@ def pin(m: re.Match[str]) -> str:
+ 
+         pinned_lines = []
+         for line in workflow_file.lines:
+-            pinned_lines.append(re.sub(r"^[^#\n]*((uses:\s+)([^\s#]+)((\s+#)([^\n]+))?)(?=\n?)", pin, line))
++            pinned_lines.append(re.sub(r"^(([^#\n]*uses:\s+)([^\s#]+)((\s+#)([^\n]+))?)(?=\n?)", pin, line))
+ 
+         return workflow_file, pinned_lines
+ 
