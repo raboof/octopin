@@ -15,7 +15,7 @@
       perSystem = { pkgs, ... } : {
         packages.default = pkgs.python3.pkgs.buildPythonPackage rec {
           pname = "octopin";
-          version = "0.1.2";
+          version = "0.1.3";
         
           src = pkgs.fetchFromGitHub {
             owner = "eclipse-csi";
@@ -23,12 +23,6 @@
             tag = "v${version}";
             hash = "sha256-cM971Nyk1r9fyURkGnuUqThXKLE/QtZqzRcXZPGXFLI=";
           };
-        
-          patches = [
-            # retain leading characters when replacing a workflow line
-            # https://github.com/eclipse-csi/octopin/pull/42
-            ./retain-leading-characters.patch
-          ];
         
           pyproject = true;
         
