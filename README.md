@@ -9,3 +9,9 @@ Try 'octopin --help' for help.
 │ Missing command.                                           │
 ╰────────────────────────────────────────────────────────────╯
 ```
+
+or
+
+```
+$ nix run git+https://github.com/raboof/octopin?ref=nix --no-write-lock-file -- pin --inplace .github/workflows/*
+```
