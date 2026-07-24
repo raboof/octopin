@@ -1,3 +1,6 @@
+NOTE: octopin has been archived upstream,
+https://github.com/suzuki-shunsuke/pinact seems like a good replacement.
+
 [octopin](https://github.com/eclipse-csi/octopin)
 
 ```
